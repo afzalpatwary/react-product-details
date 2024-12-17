@@ -5,3 +5,9 @@
 body{
   font-family: "Roboto", serif;
 }
+.border-gray{
+  border-color: #DBDFEA !important;
+}
+.bg-blue{
+  background-color: #6576FF;
+}
