@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "tailwindcss/tailwind.css";
+import "./App.css";
 
 const ProductDetails = () => {
   const [selectedColor, setSelectedColor] = useState("red");
