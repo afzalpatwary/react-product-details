@@ -6,9 +6,9 @@ import purpleImg from '../src/assets/img/product-img1.png';
 import blackImg from '../src/assets/img/product-img2.png';
 import blueImg from '../src/assets/img/product-img3.png';
 import cyanImg from '../src/assets/img/product-img4.png';
-import star from '../src/assets/img/star.svg';
-import starhf from '../src/assets/img/star-hf.svg';
 import starbl from '../src/assets/img/star-bl.svg';
+import starhf from '../src/assets/img/star-hf.svg';
+import star from '../src/assets/img/star.svg';
 
 const ProductDetails = () => {
   const [selectedColor, setSelectedColor] = useState("purple");
@@ -63,8 +63,8 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="pt-[120px]">
-      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-[60px] items-center pb-[112px]">
+    <div className="pt-[50px] lg:pt-[120px]">
+      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-[30px] lg:gap-[60px] items-center pb-[50px] lg:pb-[112px]">
         {/* Left: Product Images */}
         <div className="flex justify-center items-center">
           <img
@@ -76,7 +76,7 @@ const ProductDetails = () => {
 
         {/* Right: Product Info */}
         <div>
-          <h1 className="text-s40 text-dark_blue font-bold mb-[10px] leading-tight capitalize">{product.title}</h1>
+          <h1 className="text-s28 lg:text-s40 text-dark_blue font-bold mb-[10px] leading-tight capitalize">{product.title}</h1>
 
           {/* Rating */}
           <div className="flex items-center mb-4">
@@ -99,7 +99,7 @@ const ProductDetails = () => {
           </div>
 
           {/* Intro */}
-          <p className="text-[18px] leading-[30px] text-gray font-normal mb-[20px]">{product.intro}</p>
+          <p className="text-[14px] lg:text-[18px] leading-[24px] lg:leading-[30px] text-gray font-normal mb-[20px]">{product.intro}</p>
 
           {/* Type and Model */}
           <div className="flex gap-[43px] mb-[20px]">
@@ -142,7 +142,7 @@ const ProductDetails = () => {
             <p className="mb-2 font-bold text-s[18px] text-dark_blue leading-snug">
               Wrist Size
             </p>
-            <div className="flex space-x-[12px]">
+            <div className="flex gap-[12px] lg:space-x-[12px] flex-wrap">
               {Object.keys(product.sizes).map((size) => (
                 <button
                   key={size}
@@ -164,7 +164,7 @@ const ProductDetails = () => {
           </div>
 
           {/* Quantity and Buttons */}
-          <div className="flex gap-4 items-center mb-4">
+          <div className="flex gap-4 items-center flex-wrap">
             <div className="flex items-center text-gray text-s14 font-normal border border-gray rounded-[4px] overflow-hidden">
               <button
                 className="px-3 text-s14 flex justify-center"
@@ -204,31 +204,31 @@ const ProductDetails = () => {
         {/* Cart Popup */}
         {cartVisible && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <div className="bg-white p-[44px] rounded-[20px] shadow-lg w-3/4 max-w-[651px] min-h-[480px]">
+            <div className="bg-white p-[20px] lg:p-[44px] rounded-[20px] shadow-lg w-3/4 max-w-[651px] min-h-[480px] overscroll-behavior overflow-x-auto">
               <h2 className="text-[22px] text-dark_blue font-bold">Your Cart</h2>
               <table className="w-full mb-4">
                 <thead>
                   <tr>
-                    <th className="border-b border-gray text-s14 font-normal text-gray py-[16px] text-left">Item</th>
-                    <th className="border-b border-gray text-s14 font-normal text-gray py-[16px] text-left">Color</th>
-                    <th className="border-b border-gray text-s14 font-normal text-gray py-[16px] text-left">Size</th>
-                    <th className="border-b border-gray text-s14 font-normal text-gray py-[16px] text-left">Qnt</th>
-                    <th className="border-b border-gray text-s14 font-normal text-gray py-[16px] text-left">Price</th>
+                    <th className="border-b border-gray text-s14 font-normal text-gray py-[16px] pr-[40px] lg:pr-[0] text-left">Item</th>
+                    <th className="border-b border-gray text-s14 font-normal text-gray py-[16px] pr-[40px] lg:pr-[0] text-left">Color</th>
+                    <th className="border-b border-gray text-s14 font-normal text-gray py-[16px] pr-[40px] lg:pr-[0] text-left">Size</th>
+                    <th className="border-b border-gray text-s14 font-normal text-gray py-[16px] pr-[40px] lg:pr-[0] text-left">Qnt</th>
+                    <th className="border-b border-gray text-s14 font-normal text-gray py-[16px] pr-[40px] lg:pr-[0] text-left">Price</th>
                   </tr>
                 </thead>
                 <tbody>
                   {cartItems.map((item, index) => (
                     <tr key={index}>
-                      <td className="border-b border-gray py-[16px] flex gap-[8px] items-center">
+                      <td className="border-b border-gray py-[16px] pr-[40px] lg:pr-[0] flex gap-[8px] items-center">
                         <img src={item.image} alt="" className="w-[36px] h-[36px] rounded" />
-                        <span className="text-dark_blue text-s14 font-normal capitalize">
+                        <span className="text-dark_blue text-s14 font-normal capitalize text-nowrap">
                           {item.title}
                         </span>
                       </td>
-                      <td className="border-b border-gray text-dark_blue text-s14 font-normal capitalize p-2">{item.color}</td>
-                      <td className="border-b border-gray py-[16px] text-dark_blue text-s14 font-bold capitalize">{item.size}</td>
-                      <td className="border-b border-gray py-[16px] text-dark_blue text-s14 font-bold capitalize">{item.quantity}</td>
-                      <td className="border-b border-gray py-[16px] text-dark_blue text-s14 font-bold capitalize">${item.price.toFixed(2)}</td>
+                      <td className="border-b border-gray text-dark_blue text-s14 font-normal capitalize p-2 pr-[40px] lg:pr-[0]">{item.color}</td>
+                      <td className="border-b border-gray py-[16px] pr-[40px] lg:pr-[0] text-dark_blue text-s14 font-bold capitalize">{item.size}</td>
+                      <td className="border-b border-gray py-[16px] pr-[40px] lg:pr-[0] text-dark_blue text-s14 font-bold capitalize">{item.quantity}</td>
+                      <td className="border-b border-gray py-[16px] pr-[40px] lg:pr-[0] text-dark_blue text-s14 font-bold capitalize">${item.price.toFixed(2)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -239,7 +239,7 @@ const ProductDetails = () => {
               </div>
               <div className="flex justify-end gap-4 items-center">
                 <button
-                  className="px-[18px] py-[8px] border border-gray rounded text-dark_blue font-bold text-[13px]"
+                  className="px-[15px] lg:px-[18px] py-[8px] border border-gray rounded text-dark_blue font-bold text-[10px] lg:text-[13px]"
                   onClick={() => setCartVisible(false)}
                 >
                   Continue Shopping
