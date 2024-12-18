@@ -146,13 +146,16 @@ const ProductDetails = () => {
               {Object.keys(product.sizes).map((size) => (
                 <button
                   key={size}
-                  className={`px-4 py-2 border border-gray rounded transition-all flex items-center justify-center ${selectedSize === size
-                    ? "border-1 border-[#6576FF] text-[#6576FF]"
-                    : "text-[#364A63]"
+                  className={`px-4 py-2 border rounded transition-all flex items-center justify-center ${selectedSize === size
+                    ? "border-[#6576FF] text-[#6576FF]"
+                    : "text-[#364A63] border-gray"
                     }`}
                   onClick={() => setSelectedSize(size)}
                 >
-                  <span className="font-bold text-s14">
+                  <span
+                    className={`font-bold text-s14 ${selectedSize === size ? "text-[#6576FF]" : ""
+                      }`}
+                  >
                     {size}
                   </span>
                   <span
@@ -244,7 +247,7 @@ const ProductDetails = () => {
                 >
                   Continue Shopping
                 </button>
-                <button className="px-[18px] py-[8px] bg-blue text-white font-bold rounded text-[13px]">
+                <button className="px-[15px] lg:px-[18px] py-[8px] bg-blue text-white font-bold rounded text-[10px] lg:text-[13px]">
                   Checkout
                 </button>
               </div>
